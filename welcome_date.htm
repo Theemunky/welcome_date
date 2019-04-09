@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Greeting Message using JavaScript</title>
+</head>
+<body>
+  <h1>Welcome to My Web Page!</h1>
+    <label id="Greetings"></label>
+</body>
+
+<script>
+  // declare varibles for the date and time
+    var dateObject = new Date();
+    var hourValue = dateObject.getHours();
+    var greetHour = dateObject.getHours();
+    var minuteValue = dateObject.getMinutes();
+    var date = dateObject.getDate();
+    var day = dateObject.getDay();
+    var getMonth = dateObject.getMonth();
+    var year = dateObject.getFullYear();
+    var ampm = hourValue >= 12 ? 'PM' : 'AM';
+    hourValue = ((hourValue + 11)% 12 + 1);
+    // array for the string month and day
+    var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    // varible to store the greeting statement
+    var greeting = "";
+    // varible to store the format of the date
+    var curTime = hourValue + ':' + minuteValue + ' ' + ampm + ' on ' + day[dateObject.getDay()] + ', ' + month[dateObject.getMonth()] + ' ' + date + ' ' + year ;
+    //if statement to give the approprate greeting
+    if (greetHour < 12){
+        greeting = 'Good Morning!';
+      }
+    else if (greetHour >= 12 && greetHour <= 17){
+        greeting = 'Good Afternoon!';
+      }
+    else if (greetHour >= 17 && greetHour <= 24){
+        greeting = 'Good Evening!';
+      }
+
+      // statement to display the oupput of the greeting and current time
+    document.getElementById('Greetings').innerHTML = '<b>' + greeting + " It is " + curTime + '</b>';
+
+</script>
+</html>
